@@ -21,9 +21,11 @@ public class testXmlGetter {
     }
 
     @DataProvider(name = "test1")
-    public static Object[][] primeNumbers() {
-        return new Object[][]{{"0", "22.11.2015"}, {"-1", "22.11.2015"}, {"1", "202.11.2015"}, {"1", "-1.11.2015"}, {"1", "32.11.2015"}};
+    public static Object[][] primeNumbers() throws Exception {
+
+        Object[][] testObjArray = ExcelUtils.getTableArray("src/main/resources/providerData.xlsx", "Sheet1",2,2);
+
+        return (testObjArray);
     }
-//
 
 }

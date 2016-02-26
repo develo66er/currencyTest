@@ -33,14 +33,14 @@ public class XMLGetter {
         URLConnection connection = new URL(url+"?"+query).openConnection();
         InputStream response = connection.getInputStream();
         InputStreamReader sr = new InputStreamReader(response);
-        res = checkString(response);
+        /*res = checkString(response);
         if(res==2)
             return 2;
         if(res==1)
-            return 1;
+            return 1;*/
         XStream xstream = new XStream();
         xstream.autodetectAnnotations(true);
-        ValCurs curs = (ValCurs)xstream.fromXML(sr);
+        ValCurs curs = (ValCurs)xstream.fromXML(response);
         if(!curs.getDate().equals(date))
             return 3;
 

@@ -28,7 +28,7 @@ public class testXmlGetter {
     public static Object[][] primeNumbers() {
         return new Object[][]{{"0", "22.11.2015"}, {"-1", "22.11.2015"}, {"0", "22.11.2015"}, {"0", "22.11.2015"}, {"0", "22.11.2015"}};
     }
-
+//
     public Map<String, String> readDbConfig() {
 
         Properties prop = new Properties();

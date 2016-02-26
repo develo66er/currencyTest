@@ -1,56 +1,46 @@
-import com.sun.jersey.api.client.Client;
-import com.sun.jersey.api.client.WebResource;
-import com.sun.jersey.core.util.MultivaluedMapImpl;
 import com.thoughtworks.xstream.XStream;
 
-import javax.ws.rs.core.MultivaluedMap;
-import java.io.StringReader;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
+import java.net.URLEncoder;
 
-/**
- * Created by natali on 25.02.16.
- */
 public class XMLGetter {
-    //String pattern ="/(\\n*\\.*)(<?xml version=\"1.0\" encoding=\"UTF-8\"?>)*(\\n*\\.*)/";
-    String pattern ="/^(.*)/";
-    Pattern p;
-    Matcher m;
-    public XMLGetter()
-    {
-        p = Pattern.compile(pattern);
+    private static final String url = "https://www.bnm.md/en/official_exchange_rates";
+    private String query;
+    private static final String charset = "utf-8";
+    private String str;
+    BufferedReader br;
+    public XMLGetter(){
+        str="";
     }
-    public Integer getDocument(String get_xml, String date){
-        Client client = Client.create();
-        WebResource resource;
-        resource = client.resource("https://www.bnm.md/en/official_exchange_rates");
-        MultivaluedMap queryParams = new MultivaluedMapImpl();
-        queryParams.add("get_xml", get_xml);
-        queryParams.add("date", date);
-        String response = resource.queryParams(queryParams).get(String.class);
-        if(!response.contains("<?xml"))
+    public boolean checkString(InputStream in, String toContain, int numLn) throws IOException {
+
+        br = new BufferedReader(new InputStreamReader(in));
+        for(int i = 0; i < numLn; i++) str = br.readLine();
+        if(!str.contains(toContain))return false;
+        return true;
+    }
+    public Integer getDocument(String get_xml, String date) throws IOException {
+
+        query = String.format("get_xml=%s&date=%s",URLEncoder.encode(get_xml,charset),URLEncoder.encode(date,charset));
+        URLConnection connection = new URL(url+"?"+query).openConnection();
+        InputStream response = connection.getInputStream();
+        InputStreamReader sr = new InputStreamReader(response);
+
+        if(!checkString(response, "<?xml", 1))
             return 1;
-        if(response.contains("Request in bad format"))
+        if(checkString(response, "Request in bad format", 2))
             return 2;
-        StringReader sr = new StringReader(response);
         XStream xstream = new XStream();
-        xstream.alias("ValCurs", ValCurs.class);
-        xstream.alias("Valute", Valute.class);
-        xstream.aliasField("Date", ValCurs.class, "Date");
-        xstream.aliasField("name", ValCurs.class, "name");
-
-        xstream.aliasField("ID", Valute.class, "ID");
-        xstream.aliasField("NumCode", Valute.class, "NumCode");
-        xstream.aliasField("CharCode", Valute.class, "CharCode");
-        xstream.aliasField("Nominal", Valute.class, "Nominal");
-
-        xstream.aliasField("Name", Valute.class, "Name");
-        xstream.aliasField("Value", Valute.class, "Value");
-        xstream.addImplicitCollection(ValCurs.class, "valute");
-
+        xstream.autodetectAnnotations(true);
         ValCurs curs = (ValCurs)xstream.fromXML(sr);
         if(!curs.getDate().equals(date))
             return 3;
+
 
     return 0;
 

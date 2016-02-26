@@ -3,7 +3,7 @@ import java.util.List;
 
 public class ValCurs {
 
-    private String Date;
+    private String date;
 
     private String name;
 
@@ -13,20 +13,7 @@ public class ValCurs {
     }
 
     public String getDate() {
-        return Date;
+        return date;
     }
-
-    public void setDate(String date) {
-        Date = date;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
 
 }

@@ -17,24 +17,27 @@ public class XMLGetter {
     public XMLGetter(){
         str="";
     }
-    public boolean checkString(InputStream in, String toContain, int numLn) throws IOException {
+    public int checkString(InputStream in) throws IOException {
 
         br = new BufferedReader(new InputStreamReader(in));
-        for(int i = 0; i < numLn; i++) str = br.readLine();
-        if(!str.contains(toContain))return false;
-        return true;
+        str = br.readLine();
+        if(!str.contains("<?xml"))
+            return 2;
+        str = br.readLine();
+        if(str.contains("Request in bad format"))return 1;
+        return 0;
     }
     public Integer getDocument(String get_xml, String date) throws IOException {
-
+        int res;
         query = String.format("get_xml=%s&date=%s",URLEncoder.encode(get_xml,charset),URLEncoder.encode(date,charset));
         URLConnection connection = new URL(url+"?"+query).openConnection();
         InputStream response = connection.getInputStream();
         InputStreamReader sr = new InputStreamReader(response);
-
-        if(!checkString(response, "<?xml", 1))
-            return 1;
-        if(checkString(response, "Request in bad format", 2))
+        res = checkString(response);
+        if(res==2)
             return 2;
+        if(res==1)
+            return 1;
         XStream xstream = new XStream();
         xstream.autodetectAnnotations(true);
         ValCurs curs = (ValCurs)xstream.fromXML(sr);

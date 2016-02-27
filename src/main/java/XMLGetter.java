@@ -1,9 +1,6 @@
 import com.thoughtworks.xstream.XStream;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
@@ -17,30 +14,37 @@ public class XMLGetter {
     public XMLGetter(){
         str="";
     }
-    public int checkString(InputStream in) throws IOException {
-
-        br = new BufferedReader(new InputStreamReader(in));
-        str = br.readLine();
-        if(!str.contains("<?xml"))
+    public int checkString(String strToCheck) throws IOException {
+        if(!strToCheck.contains("<?xml"))
             return 2;
-        str = br.readLine();
-        if(str.contains("Request in bad format"))return 1;
+        if(strToCheck.contains("Request in bad format"))
+            return 1;
         return 0;
     }
+    public String streamConverter(InputStream in) throws IOException {
+        StringBuilder sb = new StringBuilder();
+        br = new BufferedReader(new InputStreamReader(in));
+        while((str = br.readLine())!=null){
+            sb.append(str);
+        }
+        return sb.toString();
+    }
     public Integer getDocument(String get_xml, String date) throws IOException {
-        int res;
+        String res;
         query = String.format("get_xml=%s&date=%s",URLEncoder.encode(get_xml,charset),URLEncoder.encode(date,charset));
         URLConnection connection = new URL(url+"?"+query).openConnection();
         InputStream response = connection.getInputStream();
-        InputStreamReader sr = new InputStreamReader(response);
-        /*res = checkString(response);
-        if(res==2)
+
+        res = streamConverter(response);
+        if(!res.contains("<?xml"))
             return 2;
-        if(res==1)
-            return 1;*/
+        if(res.contains("Request in bad format"))
+            return 1;
+
+        StringReader sr = new StringReader(res);
         XStream xstream = new XStream();
         xstream.autodetectAnnotations(true);
-        ValCurs curs = (ValCurs)xstream.fromXML(response);
+        ValCurs curs = (ValCurs)xstream.fromXML(sr);
         if(!curs.getDate().equals(date))
             return 3;
 

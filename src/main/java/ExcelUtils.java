@@ -26,8 +26,6 @@ public class ExcelUtils {
 
             FileInputStream ExcelFile = new FileInputStream(FilePath);
 
-            // Access the required test data sheet
-
             ExcelWBook = new XSSFWorkbook(ExcelFile);
 
             ExcelWSheet = ExcelWBook.getSheet(SheetName);
@@ -40,8 +38,6 @@ public class ExcelUtils {
 
             int totalRows = numRows;
 
-            // you can write a function as well to get Column count
-
             int totalCols = numCols;
 
             tabArray = new String[totalRows][totalCols];
@@ -53,11 +49,8 @@ public class ExcelUtils {
                 cj = 0;
 
                 for (int j = startCol; j <= totalCols; j++, cj++) {
-
                     tabArray[ci][cj] = getCellData(i, j);
-
                     System.out.println(tabArray[ci][cj]);
-
                 }
 
             }
@@ -81,31 +74,23 @@ public class ExcelUtils {
     }
 
     public static String getCellData(int RowNum, int ColNum) throws Exception {
-
+        String CellData;
         try {
-
             Cell = ExcelWSheet.getRow(RowNum).getCell(ColNum);
-
             int dataType = Cell.getCellType();
 
             if (dataType == 3) {
-
                 return "";
-
             } else if (dataType == 0) {
-                Double res = Cell.getNumericCellValue();
-                String CellData = Double.toString(res);
+                double res = Cell.getNumericCellValue();
+                CellData = Double.toString(res);
                 return CellData;
             }else {
-
-                String CellData = Cell.getStringCellValue().toString();
-
+                CellData = Cell.getStringCellValue();
                 return CellData;
                 }
             }catch(Exception e){
-
                 System.out.println(e.getMessage());
-
                 throw (e);
 
             }

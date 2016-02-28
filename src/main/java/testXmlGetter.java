@@ -1,6 +1,7 @@
+import org.apache.log4j.Logger;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import org.apache.log4j.Logger;
 
 import java.io.IOException;
 
@@ -10,21 +11,20 @@ import java.io.IOException;
 public class testXmlGetter {
     public static final Logger LOG= Logger.getLogger(testXmlGetter.class);
     @Test(dataProvider = "test1")
-    public void testGetter(String get_xml, String date) throws IOException {
-        int res;
+    public void testGetter(String get_xml, String date, String expectStr) throws IOException {
+        Integer res,expectInt;
+        Double temp = Double.parseDouble(expectStr);
+        expectInt = temp.intValue();
         XMLGetter getter = new XMLGetter();
         res = getter.getDocument(get_xml, date);
-        LOG.info("res:"+res);
-
-
+        Assert.assertEquals(res,expectInt);
+        LOG.info("received value: "+res+" expected value: "+expectInt);
 
     }
 
     @DataProvider(name = "test1")
     public static Object[][] primeNumbers() throws Exception {
-
-        Object[][] testObjArray = ExcelUtils.getTableArray("src/main/resources/providerData.xlsx", "Sheet1",2,2);
-
+        Object[][] testObjArray = ExcelUtils.getTableArray("src/main/resources/providerData.xlsx", "Sheet1",30,3);
         return (testObjArray);
     }
 

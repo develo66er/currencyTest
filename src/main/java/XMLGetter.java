@@ -14,13 +14,7 @@ public class XMLGetter {
     public XMLGetter(){
         str="";
     }
-    public int checkString(String strToCheck) throws IOException {
-        if(!strToCheck.contains("<?xml"))
-            return 2;
-        if(strToCheck.contains("Request in bad format"))
-            return 1;
-        return 0;
-    }
+
     public String streamConverter(InputStream in) throws IOException {
         StringBuilder sb = new StringBuilder();
         br = new BufferedReader(new InputStreamReader(in));
@@ -29,17 +23,26 @@ public class XMLGetter {
         }
         return sb.toString();
     }
-    public Integer getDocument(String get_xml, String date) throws IOException {
-        String res;
-        query = String.format("get_xml=%s&date=%s",URLEncoder.encode(get_xml,charset),URLEncoder.encode(date,charset));
-        URLConnection connection = new URL(url+"?"+query).openConnection();
-        InputStream response = connection.getInputStream();
-
-        res = streamConverter(response);
+    public Integer getDocument(String get_xml, String date){
+        String res="";
+        try {
+            query = String.format("get_xml=%s&date=%s",URLEncoder.encode(get_xml,charset),URLEncoder.encode(date,charset));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        URLConnection connection = null;
+        try {
+            connection = new URL(url+"?"+query).openConnection();
+            InputStream response = connection.getInputStream();
+            res = streamConverter(response);
+        } catch (IOException e) {
+            //e.printStackTrace();
+            return 4;
+        }
         if(!res.contains("<?xml"))
-            return 2;
+            return 2;//redirect to main page of service
         if(res.contains("Request in bad format"))
-            return 1;
+            return 1;//request in bad format
 
         StringReader sr = new StringReader(res);
         XStream xstream = new XStream();

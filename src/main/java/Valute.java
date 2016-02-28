@@ -20,7 +20,7 @@ public class Valute {
 
 
     public String getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(String id) {
@@ -28,7 +28,7 @@ public class Valute {
     }
 
     public String getNumCode() {
-        return numCode;
+        return this.numCode;
     }
 
     public void setNumCode(String numCode) {
@@ -36,7 +36,7 @@ public class Valute {
     }
 
     public String getCharCode() {
-        return charCode;
+        return this.charCode;
     }
 
     public void setCharCode(String charCode) {
@@ -44,7 +44,7 @@ public class Valute {
     }
 
     public String getNominal() {
-        return nominal;
+        return this.nominal;
     }
 
     public void setNominal(String nominal) {
@@ -52,7 +52,7 @@ public class Valute {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -60,7 +60,7 @@ public class Valute {
     }
 
     public double getValue() {
-        return value;
+        return this.value;
     }
 
     public void setValue(double value) {

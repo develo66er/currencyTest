@@ -6,11 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 @XStreamAlias("ValCurs")
 public class ValCurs {
-
+    @XStreamAlias("Date")
     @XStreamAsAttribute
-    private String Date;
+    private String date;
+
+    @XStreamAlias("name")
     @XStreamAsAttribute
     private String name;
+
     @XStreamImplicit(itemFieldName = "Valute")
     private List<Valute> valute = new ArrayList<Valute>();
 
@@ -19,26 +22,26 @@ public class ValCurs {
 
 
     public String getDate() {
-        return Date;
+        return this.date;
     }
 
     public void setDate(String date) {
-        Date = date;
+        this.date = date;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
-        name = name;
+        this.name = name;
     }
 
     public List<Valute> getValute() {
-        return valute;
+        return this.valute;
     }
 
     public void setValute(List<Valute> valute) {
-        valute = valute;
+        this.valute = valute;
     }
 }

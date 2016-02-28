@@ -8,8 +8,12 @@ import java.io.IOException;
 /**
  * Created by natali on 25.02.16.
  */
-public class testXmlGetter {
-    public static final Logger LOG= Logger.getLogger(testXmlGetter.class);
+public class TestXmlGetter {
+    public static final Logger LOG= Logger.getLogger(TestXmlGetter.class);
+    static Configuration config;
+    public TestXmlGetter(){
+        config = Configuration.getInstance();
+    }
     @Test(dataProvider = "test1")
     public void testGetter(String get_xml, String date, String expectStr) throws IOException {
         Integer res,expectInt;
@@ -24,7 +28,7 @@ public class testXmlGetter {
 
     @DataProvider(name = "test1")
     public static Object[][] primeNumbers() throws Exception {
-        Object[][] testObjArray = ExcelUtils.getTableArray("src/main/resources/providerData.xlsx", "Sheet1",30,3);
+        Object[][] testObjArray = ExcelUtils.getTableArray(config.getProperty("excelPath"), config.getProperty("excelSheetName"),Integer.parseInt(config.getProperty("excelNumRows")),Integer.parseInt(config.getProperty("excelNumCols")));
         return (testObjArray);
     }
 

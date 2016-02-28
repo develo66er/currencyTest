@@ -6,12 +6,12 @@ import java.net.URLConnection;
 import java.net.URLEncoder;
 
 public class XMLGetter {
-    private static final String url = "https://www.bnm.md/en/official_exchange_rates";
+    static Configuration config;
     private String query;
-    private static final String charset = "utf-8";
     private String str;
     BufferedReader br;
     public XMLGetter(){
+        config = Configuration.getInstance();
         str="";
     }
 
@@ -26,13 +26,13 @@ public class XMLGetter {
     public Integer getDocument(String get_xml, String date){
         String res="";
         try {
-            query = String.format("get_xml=%s&date=%s",URLEncoder.encode(get_xml,charset),URLEncoder.encode(date,charset));
+            query = String.format("get_xml=%s&date=%s",URLEncoder.encode(get_xml,config.getProperty("documentCharset")),URLEncoder.encode(date,config.getProperty("documentCharset")));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
         URLConnection connection = null;
         try {
-            connection = new URL(url+"?"+query).openConnection();
+            connection = new URL(config.getProperty("endpointURL")+"?"+query).openConnection();
             InputStream response = connection.getInputStream();
             res = streamConverter(response);
         } catch (IOException e) {

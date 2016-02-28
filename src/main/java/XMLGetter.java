@@ -50,8 +50,6 @@ public class XMLGetter {
         ValCurs curs = (ValCurs)xstream.fromXML(sr);
         if(!curs.getDate().equals(date))
             return 3;
-
-
     return 0;
 
     }

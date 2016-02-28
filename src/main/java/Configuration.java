@@ -14,7 +14,7 @@ public class Configuration {
             props.load(fis);
         }
         catch (Exception e) {
-
+            System.out.println("no such file: src/main/resources/config.properties");
         }
     }
 
@@ -30,7 +30,7 @@ public class Configuration {
         if (props.containsKey(key))
             value = (String) props.get(key);
         else {
-
+            System.out.println("property file don't contains key : " + key);
         }
         return value;
     }

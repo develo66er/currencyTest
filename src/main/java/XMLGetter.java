@@ -1,9 +1,9 @@
 import com.thoughtworks.xstream.XStream;
 
 import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLConnection;
-import java.net.URLEncoder;
 
 public class XMLGetter {
     static Configuration config;
@@ -24,21 +24,19 @@ public class XMLGetter {
         return sb.toString();
     }
     public Integer getDocument(String get_xml, String date){
+        URL obj = null;
         String res="";
         try {
-            query = String.format("get_xml=%s&date=%s",URLEncoder.encode(get_xml,config.getProperty("documentCharset")),URLEncoder.encode(date,config.getProperty("documentCharset")));
-        } catch (UnsupportedEncodingException e) {
+            obj = new URL(config.getProperty("endpointURL")+"?get_xml="+get_xml+"&date="+date);
+            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+            con.setRequestMethod("GET");
+            res = streamConverter(con.getInputStream());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
-        URLConnection connection = null;
-        try {
-            connection = new URL(config.getProperty("endpointURL")+"?"+query).openConnection();
-            InputStream response = connection.getInputStream();
-            res = streamConverter(response);
-        } catch (IOException e) {
-            //e.printStackTrace();
-            return 4;
-        }
+
         if(!res.contains("<?xml"))
             return 2;//redirect to main page of service
         if(res.contains("Request in bad format"))

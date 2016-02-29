@@ -12,12 +12,13 @@
  INFO TestXmlGetter: received value: 2 expected value: 2
  INFO TestXmlGetter: received value: 2 expected value: 2
  INFO TestXmlGetter: received value: 2 expected value: 2
+ INFO TestXmlGetter: received value: 2 expected value: 2
  INFO TestXmlGetter: received value: 1 expected value: 1
  INFO TestXmlGetter: received value: 1 expected value: 1
  INFO TestXmlGetter: received value: 1 expected value: 1
  INFO TestXmlGetter: received value: 1 expected value: 1
  INFO TestXmlGetter: received value: 1 expected value: 1
- INFO TestXmlGetter: received value: 1 expected value: 1
+ INFO TestXmlGetter: received value: 2 expected value: 2
  INFO TestXmlGetter: received value: 1 expected value: 1
  INFO TestXmlGetter: received value: 1 expected value: 1
  INFO TestXmlGetter: received value: 1 expected value: 1

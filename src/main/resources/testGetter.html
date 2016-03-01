@@ -572,8 +572,8 @@ jQuery.cookie = function(name, value, options) {
 <body>
 <div id="container">
 <div id="header">
-<div class="time">5.30 s</div>
-<h1>TestXmlGetter.testGetter: <strong><span class="total">30 total, </span><span class="failed">4 failed, </span><span class="passed">26 passed</span></strong>
+<div class="time">5.70 s</div>
+<h1>TestXmlGetter.testGetter: <strong><span class="total">30 total, </span><span class="failed">3 failed, </span><span class="passed">27 passed</span></strong>
 </h1>
 <div id="treecontrol">
 <ul>
@@ -591,162 +591,183 @@ jQuery.cookie = function(name, value, options) {
 <ul id="tree">
 <li xmlns="" class="level top failed open">
 <span><em class="time">
-<div class="time">5.30 s</div>
+<div class="time">5.70 s</div>
 </em>currency</span>
 <ul>
 <li class="level suite failed open">
 <span><em class="time">
-<div class="time">5.30 s</div>
+<div class="time">5.70 s</div>
 </em>TestXmlGetter</span>
 <ul>
 <li class="level test">
 <span><em class="time">
-<div class="time">1.47 s</div>
+<div class="time">1.93 s</div>
 </em><em class="status">passed</em>TestXmlGetter.testGetter[1.0, 22.02.2015, 0.0]</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">205 ms</div>
+<div class="time">226 ms</div>
 </em><em class="status">passed</em>TestXmlGetter.testGetter[0.0, 42057.0, 2.0] (1)</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">216 ms</div>
+<div class="time">191 ms</div>
 </em><em class="status">passed</em>TestXmlGetter.testGetter[-1.0, 22.02.2015, 2.0] (2)</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">222 ms</div>
+<div class="time">231 ms</div>
 </em><em class="status">passed</em>TestXmlGetter.testGetter[128.0, 23.02.2015, 2.0] (3)</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">193 ms</div>
+<div class="time">187 ms</div>
 </em><em class="status">passed</em>TestXmlGetter.testGetter[-129.0, 24.02.2015, 2.0] (4)</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">216 ms</div>
+<div class="time">182 ms</div>
 </em><em class="status">passed</em>TestXmlGetter.testGetter[32768.0, 25.02.2015, 2.0] (5)</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">208 ms</div>
+<div class="time">192 ms</div>
 </em><em class="status">passed</em>TestXmlGetter.testGetter[-32769.0, 26.02.2015, 2.0] (6)</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">205 ms</div>
+<div class="time">208 ms</div>
 </em><em class="status">passed</em>TestXmlGetter.testGetter[2.147483648E9, 27.02.2015, 2.0] (7)</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">181 ms</div>
+<div class="time">186 ms</div>
 </em><em class="status">passed</em>TestXmlGetter.testGetter[-2.147483649E9, 28.02.2015, 2.0] (8)</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">212 ms</div>
+<div class="time">207 ms</div>
 </em><em class="status">passed</em>TestXmlGetter.testGetter[65535.0, 01.03.2015, 2.0] (9)</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">190 ms</div>
+<div class="time">189 ms</div>
 </em><em class="status">passed</em>TestXmlGetter.testGetter[d, 02.03.2015, 2.0] (10)</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">195 ms</div>
+<div class="time">229 ms</div>
 </em><em class="status">passed</em>TestXmlGetter.testGetter[dfd, 03.03.2015, 2.0] (11)</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">182 ms</div>
+<div class="time">180 ms</div>
 </em><em class="status">passed</em>TestXmlGetter.testGetter[false, 04.03.2015, 2.0] (12)</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">211 ms</div>
+<div class="time">195 ms</div>
 </em><em class="status">passed</em>TestXmlGetter.testGetter[true, 22.02.2015, 2.0] (13)</span>
 </li>
-<li class="level test failed open">
+<li class="level test">
 <span><em class="time">
-<div class="time">415 ms</div>
-</em><em class="status">failed</em>TestXmlGetter.testGetter[1.0, 22.03.2016, 2.0] (14)</span>
+<div class="time">390 ms</div>
+</em><em class="status">passed</em>TestXmlGetter.testGetter[1.0, 22.03.2016, 2.0] (14)</span>
+<ul>
+<li class="text">
+<span class="stderr">java.io.FileNotFoundException: https://www.bnm.md/en/official_exchange_rates?get_xml=1.0&amp;date=22.03.2016<br/></span>
+</li>
+<li class="text">
+<span class="stdout"></span>
+</li>
+<li class="text">
+<span class="stderr">	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1835)<br/>	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1440)<br/>	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:254)<br/>	at XMLGetter.getDocument(XMLGetter.java:34)<br/>	at TestXmlGetter.testGetter(TestXmlGetter.java:28)<br/></span>
+</li>
+</ul>
 </li>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">27 ms</div>
+<div class="time">28 ms</div>
 </em><em class="status">failed</em>TestXmlGetter.testGetter[1.0, 33.04.2015, 2.0] (15)</span>
+<ul>
+<li class="text">
+<span class="stderr">	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br/>	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br/>	at java.lang.reflect.Method.invoke(Method.java:497)<br/>	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)<br/>	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)<br/>	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)<br/>	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)<br/>	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)<br/>	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)<br/>	at org.testng.TestRunner.privateRun(TestRunner.java:767)<br/>	at org.testng.TestRunner.run(TestRunner.java:617)<br/>	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)<br/>	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)<br/>	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)<br/>	at org.testng.SuiteRunner.run(SuiteRunner.java:240)<br/>	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br/>	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)<br/>	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)<br/>	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)<br/>	at org.testng.TestNG.run(TestNG.java:1031)<br/>	at org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:72)<br/>	at org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:122)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br/>	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br/>	at java.lang.reflect.Method.invoke(Method.java:497)<br/>	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:144)<br/></span>
+</li>
+</ul>
 </li>
 <li class="level test failed open">
 <span><em class="time">
-<div class="time">25 ms</div>
+<div class="time">28 ms</div>
 </em><em class="status">failed</em>TestXmlGetter.testGetter[1.0, 00.04.2015, 2.0] (16)</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">28 ms</div>
+<div class="time">25 ms</div>
 </em><em class="status">passed</em>TestXmlGetter.testGetter[1.0, -29.04.2015, 1.0] (17)</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">26 ms</div>
+<div class="time">28 ms</div>
 </em><em class="status">passed</em>TestXmlGetter.testGetter[1.0, 1.04.2015, 1.0] (18)</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">24 ms</div>
+<div class="time">26 ms</div>
 </em><em class="status">passed</em>TestXmlGetter.testGetter[1.0, 12.48.2015, 1.0] (19)</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">25 ms</div>
+<div class="time">17 ms</div>
 </em><em class="status">passed</em>TestXmlGetter.testGetter[1.0, 12.00.2015, 1.0] (20)</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">25 ms</div>
+<div class="time">22 ms</div>
 </em><em class="status">passed</em>TestXmlGetter.testGetter[1.0, 12.-11.2015, 1.0] (21)</span>
 </li>
-<li class="level test failed open">
-<span><em class="time">
-<div class="time">424 ms</div>
-</em><em class="status">failed</em>TestXmlGetter.testGetter[1.0, 12.12.1001, 2.0] (22)</span>
-</li>
 <li class="level test">
 <span><em class="time">
-<div class="time">21 ms</div>
-</em><em class="status">passed</em>TestXmlGetter.testGetter[1.0, 111.05.2014, 1.0] (23)</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">20 ms</div>
-</em><em class="status">passed</em>TestXmlGetter.testGetter[1.0, 11.005. 2016, 1.0] (24)</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">23 ms</div>
-</em><em class="status">passed</em>TestXmlGetter.testGetter[1.0, 22.04.201555, 1.0] (25)</span>
-</li>
-<li class="level test">
-<span><em class="time">
-<div class="time">26 ms</div>
-</em><em class="status">passed</em>TestXmlGetter.testGetter[1.0, 0a.05.2014, 1.0] (26)</span>
+<div class="time">415 ms</div>
+</em><em class="status">passed</em>TestXmlGetter.testGetter[1.0, 12.12.1001, 2.0] (22)</span>
 </li>
 <li class="level test">
 <span><em class="time">
 <div class="time">27 ms</div>
+</em><em class="status">passed</em>TestXmlGetter.testGetter[1.0, 111.05.2014, 1.0] (23)</span>
+<ul>
+<li class="text">
+<span class="stderr">java.io.FileNotFoundException: https://www.bnm.md/en/official_exchange_rates?get_xml=1.0&amp;date=12.12.1001<br/>	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1835)<br/>	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1440)<br/>	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:254)<br/>	at XMLGetter.getDocument(XMLGetter.java:34)<br/>	at TestXmlGetter.testGetter(TestXmlGetter.java:28)<br/>	at sun.reflect.GeneratedMethodAccessor1.invoke(Unknown Source)<br/>	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br/>	at java.lang.reflect.Method.invoke(Method.java:497)<br/>	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)<br/>	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)<br/>	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)<br/>	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)<br/>	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)<br/>	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)<br/>	at org.testng.TestRunner.privateRun(TestRunner.java:767)<br/>	at org.testng.TestRunner.run(TestRunner.java:617)<br/>	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)<br/>	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)<br/>	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)<br/>	at org.testng.SuiteRunner.run(SuiteRunner.java:240)<br/>	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br/>	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)<br/>	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)<br/>	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)<br/>	at org.testng.TestNG.run(TestNG.java:1031)<br/>	at org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:72)<br/>	at org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:122)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br/>	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br/>	at java.lang.reflect.Method.invoke(Method.java:497)<br/>	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:144)<br/>java.io.IOException: Server returned HTTP response code: 400 for URL: https://www.bnm.md/en/official_exchange_rates?get_xml=1.0&amp;date=11.005. 2016<br/>	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1839)<br/>	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1440)<br/>	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:254)<br/>	at XMLGetter.getDocument(XMLGetter.java:34)<br/>	at TestXmlGetter.testGetter(TestXmlGetter.java:28)<br/>	at sun.reflect.GeneratedMethodAccessor1.invoke(Unknown Source)<br/>	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br/>	at java.lang.reflect.Method.invoke(Method.java:497)<br/>	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)<br/>	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)<br/>	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)<br/>	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)<br/>	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)<br/>	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)<br/>	at org.testng.TestRunner.privateRun(TestRunner.java:767)<br/>	at org.testng.TestRunner.run(TestRunner.java:617)<br/>	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)<br/>	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)<br/>	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)<br/>	at org.testng.SuiteRunner.run(SuiteRunner.java:240)<br/>	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br/>	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)<br/>	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)<br/>	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)<br/>	at org.testng.TestNG.run(TestNG.java:1031)<br/>	at org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:72)<br/>	at org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:122)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br/>	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br/>	at java.lang.reflect.Method.invoke(Method.java:497)<br/>	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:144)<br/></span>
+</li>
+</ul>
+</li>
+<li class="level test failed open">
+<span><em class="time">
+<div class="time">4 ms</div>
+</em><em class="status">failed</em>TestXmlGetter.testGetter[1.0, 11.005. 2016, 1.0] (24)</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">64 ms</div>
+</em><em class="status">passed</em>TestXmlGetter.testGetter[1.0, 22.04.201555, 1.0] (25)</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">23 ms</div>
+</em><em class="status">passed</em>TestXmlGetter.testGetter[1.0, 0a.05.2014, 1.0] (26)</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">18 ms</div>
 </em><em class="status">passed</em>TestXmlGetter.testGetter[1.0, 02.4d.2015, 1.0] (27)</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">25 ms</div>
+<div class="time">23 ms</div>
 </em><em class="status">passed</em>TestXmlGetter.testGetter[1.0, 03.04.201A, 1.0] (28)</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">28 ms</div>
+<div class="time">30 ms</div>
 </em><em class="status">passed</em>TestXmlGetter.testGetter[1.0, 03.0-.2014, 1.0] (29)</span>
 </li>
 </ul>
@@ -757,7 +778,7 @@ jQuery.cookie = function(name, value, options) {
 </div>
 </div>
 <div id="footer">
-<p>Generated by IntelliJ IDEA on 28.02.16 20:37</p>
+<p>Generated by IntelliJ IDEA on 01.03.16 19:32</p>
 </div>
 </body>
 </html>

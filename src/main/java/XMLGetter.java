@@ -6,12 +6,13 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class XMLGetter {
-    static Configuration config;
-    private String query;
+    private final static String endpointURL  = "https://www.bnm.md/en/official_exchange_rates";
     private String str;
-    BufferedReader br;
+    private BufferedReader br;
+    private StringReader sr;
+    private XStream xstream;
+    private ValCurs curs;
     public XMLGetter(){
-        config = Configuration.getInstance();
         str="";
     }
 
@@ -27,7 +28,7 @@ public class XMLGetter {
         URL obj = null;
         String res="";
         try {
-            obj = new URL(config.getProperty("endpointURL")+"?get_xml="+get_xml+"&date="+date);
+            obj = new URL(endpointURL+"?get_xml="+get_xml+"&date="+date);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
             con.setRequestMethod("GET");
             res = streamConverter(con.getInputStream());
@@ -42,10 +43,10 @@ public class XMLGetter {
         if(res.contains("Request in bad format"))
             return 1;//request in bad format
 
-        StringReader sr = new StringReader(res);
-        XStream xstream = new XStream();
+        sr = new StringReader(res);
+        xstream = new XStream();
         xstream.autodetectAnnotations(true);
-        ValCurs curs = (ValCurs)xstream.fromXML(sr);
+        curs = (ValCurs)xstream.fromXML(sr);
         if(!curs.getDate().equals(date))
             return 3;
     return 0;

@@ -9,11 +9,16 @@ import java.io.IOException;
  * Created by natali on 25.02.16.
  */
 public class TestXmlGetter {
-    public static final Logger LOG= Logger.getLogger(TestXmlGetter.class);
-    static Configuration config;
+    private static final Logger LOG= Logger.getLogger(TestXmlGetter.class);
+    private static final String excelPath = "src/main/resources/providerData.xlsx";
+    private static final String excelSheetName = "Sheet1";
+    private static int excelNumRows;
+    private static int excelNumCols;
     public TestXmlGetter(){
-        config = Configuration.getInstance();
+        excelNumRows = 30;
+        excelNumCols = 3;
     }
+
     @Test(dataProvider = "test1")
     public void testGetter(String get_xml, String date, String expectStr) throws IOException {
         Integer res,expectInt;
@@ -28,7 +33,7 @@ public class TestXmlGetter {
 
     @DataProvider(name = "test1")
     public static Object[][] primeNumbers() throws Exception {
-        Object[][] testObjArray = ExcelUtils.getTableArray(config.getProperty("excelPath"), config.getProperty("excelSheetName"),Integer.parseInt(config.getProperty("excelNumRows")),Integer.parseInt(config.getProperty("excelNumCols")));
+        Object[][] testObjArray = ExcelUtils.getTableArray(excelPath, excelSheetName, excelNumRows, excelNumCols);
         return (testObjArray);
     }
 
